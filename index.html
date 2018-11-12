@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    body > div {
+      display: flex;
+    }
+    body > div > button {
+      width: 100px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    .static, .hover {
+      display: flex;
+    }
+    .disable {
+      display: none!important;
+    }
+  </style>
+  <header></header>
+  <body>
+    <div class="static">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+    </div>
+    <div class="hover disable">
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+    </div>
+  </body>
+  <footer></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    jQuery( document ).ready(function($) {
+
+      $('.static').mouseenter(function(){
+          $(this).addClass('disable');
+          $('.hover').removeClass('disable');
+      })
+
+      $('.hover').mouseout(function(){
+          $(this).addClass('disable');
+          $('.static').removeClass('disable');
+      })
+
+    })
+  </script>
+</body>
+</html>
